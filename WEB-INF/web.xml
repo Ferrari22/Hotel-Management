@@ -1,0 +1,413 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+ Licensed to the Apache Software Foundation (ASF) under one or more
+  contributor license agreements.  See the NOTICE file distributed with
+  this work for additional information regarding copyright ownership.
+  The ASF licenses this file to You under the Apache License, Version 2.0
+  (the "License"); you may not use this file except in compliance with
+  the License.  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+                      http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+  version="3.1"
+  metadata-complete="true">
+
+  <display-name>Welcome to Tomcat</display-name>
+  <description>
+     Welcome to Tomcat
+  </description>
+  <servlet>
+    <!--ServletConfigurator:加载并初始化proxool.xml文件,因为它是连接数据库的.其他很多模块都用到数据,所以必须首先加载它-->
+    <servlet-name>ServletConfigurator</servlet-name>
+    <servlet-class>org.logicalcobwebs.proxool.configuration.ServletConfigurator</servlet-class>
+    <init-param>
+      <param-name>xmlFile</param-name>
+      <param-value>WEB-INF/proxool.xml</param-value>
+    </init-param>
+    <!--load-on-startup:数值越小，就会先被加载初始化-->
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <session-config>
+    <session-timeout>120</session-timeout>
+  </session-config>
+  <servlet>
+        <servlet-name>Main</servlet-name>
+        <servlet-class>com.server.Main</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Main</servlet-name>
+        <url-pattern>/index</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Login</servlet-name>
+        <servlet-class>com.server.Login</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Login</servlet-name>
+        <url-pattern>/login</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>HomeList</servlet-name>
+        <servlet-class>com.server.HomeList</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>HomeList</servlet-name>
+        <url-pattern>/homelist</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>RoomTypeList</servlet-name>
+        <servlet-class>com.server.RoomTypeList</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>RoomTypeList</servlet-name>
+        <url-pattern>/roomtypelist</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>CheckIn</servlet-name>
+        <servlet-class>com.server.CheckIn</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>CheckIn</servlet-name>
+        <url-pattern>/checkin</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Register</servlet-name>
+        <servlet-class>com.server.Register</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Register</servlet-name>
+        <url-pattern>/register</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>GetUserName</servlet-name>
+        <servlet-class>com.server.GetUserName</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>GetUserName</servlet-name>
+        <url-pattern>/getusername</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>MemberList</servlet-name>
+        <servlet-class>com.server.MemberList</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>MemberList</servlet-name>
+        <url-pattern>/memberlist</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>HomeId</servlet-name>
+        <servlet-class>com.server.HomeId</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>HomeId</servlet-name>
+        <url-pattern>/romeid</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>CheckOutSum</servlet-name>
+        <servlet-class>com.server.CheckOutSum</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>CheckOutSum</servlet-name>
+        <url-pattern>/checkoutsum</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>CheckOut</servlet-name>
+        <servlet-class>com.server.CheckOut</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>CheckOut</servlet-name>
+        <url-pattern>/checkout</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>StaffList</servlet-name>
+        <servlet-class>com.server.StaffList</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>StaffList</servlet-name>
+        <url-pattern>/stafflist</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>StaffId</servlet-name>
+        <servlet-class>com.server.StaffId</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>StaffId</servlet-name>
+        <url-pattern>/staffid</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>StaffDelete</servlet-name>
+        <servlet-class>com.server.StaffDelete</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>StaffDelete</servlet-name>
+        <url-pattern>/staffdelete</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>CustomerList</servlet-name>
+        <servlet-class>com.server.CustomerList</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>CustomerList</servlet-name>
+        <url-pattern>/customerlist</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>RecordList</servlet-name>
+        <servlet-class>com.server.RecordList</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>RecordList</servlet-name>
+        <url-pattern>/recordlist</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>CheckInMember</servlet-name>
+        <servlet-class>com.server.CheckInMember</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>CheckInMember</servlet-name>
+        <url-pattern>/checkinmember</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>GetRoomState</servlet-name>
+        <servlet-class>com.server.GetRoomState</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>GetRoomState</servlet-name>
+        <url-pattern>/getroomstate</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>GetRoomId</servlet-name>
+        <servlet-class>com.server.GetRoomId</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>GetRoomId</servlet-name>
+        <url-pattern>/getroomid</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>UpdateMemberInfo</servlet-name>
+        <servlet-class>com.server.UpdateMemberInfo</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>UpdateMemberInfo</servlet-name>
+        <url-pattern>/updatememberinfo</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>MemberRegister</servlet-name>
+        <servlet-class>com.server.MemberRegister</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>MemberRegister</servlet-name>
+        <url-pattern>/memberregister</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>MemberId</servlet-name>
+        <servlet-class>com.server.MemberId</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>MemberId</servlet-name>
+        <url-pattern>/memberid</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>MemberDelete</servlet-name>
+        <servlet-class>com.server.MemberDelete</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>MemberDelete</servlet-name>
+        <url-pattern>/memberdelete</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>BookAdd</servlet-name>
+        <servlet-class>com.server.BookAdd</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>BookAdd</servlet-name>
+        <url-pattern>/bookadd</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>BookList</servlet-name>
+        <servlet-class>com.server.BookList</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>BookList</servlet-name>
+        <url-pattern>/booklist</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>BookListReg</servlet-name>
+        <servlet-class>com.server.BookListReg</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>BookListReg</servlet-name>
+        <url-pattern>/booklistreg</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>BookId</servlet-name>
+        <servlet-class>com.server.BookId</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>BookId</servlet-name>
+        <url-pattern>/bookid</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>BookDelete</servlet-name>
+        <servlet-class>com.server.BookDelete</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>BookDelete</servlet-name>
+        <url-pattern>/bookdelete</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>RoomType</servlet-name>
+        <servlet-class>com.server.RoomType</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>RoomType</servlet-name>
+        <url-pattern>/roomtype</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ReviseRoomType</servlet-name>
+        <servlet-class>com.server.ReviseRoomType</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>ReviseRoomType</servlet-name>
+        <url-pattern>/reviseroomtype</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>AddRoom</servlet-name>
+        <servlet-class>com.server.AddRoom</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>AddRoom</servlet-name>
+        <url-pattern>/addroom</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>DeleteRoom</servlet-name>
+        <servlet-class>com.server.DeleteRoom</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>DeleteRoom</servlet-name>
+        <url-pattern>/deleteroom</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>BookRecordList</servlet-name>
+        <servlet-class>com.server.BookRecordList</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>BookRecordList</servlet-name>
+        <url-pattern>/bookrecordlist</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>CheckInBook</servlet-name>
+        <servlet-class>com.server.CheckInBook</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>CheckInBook</servlet-name>
+        <url-pattern>/checkinbook</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>UpdateInfo</servlet-name>
+        <servlet-class>com.server.UpdateInfo</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>UpdateInfo</servlet-name>
+        <url-pattern>/updateinfo</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>FinanceDate</servlet-name>
+        <servlet-class>com.server.FinanceDate</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>FinanceDate</servlet-name>
+        <url-pattern>/financedata</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>BookDeleteSum</servlet-name>
+        <servlet-class>com.server.BookDeleteSum</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>BookDeleteSum</servlet-name>
+        <url-pattern>/bookdeletesum</url-pattern>
+    </servlet-mapping>
+
+</web-app>

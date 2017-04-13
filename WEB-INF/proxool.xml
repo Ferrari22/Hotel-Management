@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<something-else-entirely>
+	<proxool>
+		<alias>mysql</alias>
+		<driver-url>jdbc:mysql://localhost/Hotel</driver-url>
+		<driver-class>com.mysql.jdbc.Driver</driver-class>
+		<driver-properties>
+			<property name="user" value="***" />
+			<property name="password" value="***" />
+		</driver-properties>
+		<!--
+			最大连接数(默认5�?),超过了这个连接数,再有请求�?,就排在队列中等�?,最大的等待请求数由maximum-new-connections决定
+		-->
+		<maximum-connection-count>30</maximum-connection-count>
+		<!--最小连接数(默认2�?)-->
+		<minimum-connection-count>1</minimum-connection-count>
+		<!--proxool自动侦察各个连接状态的时间间隔(毫秒),侦察到空闲的连接就马上回�?,超时的销�? 默认30�?-->
+		<house-keeping-sleep-time>50000</house-keeping-sleep-time>
+		<!--没有空闲连接可以分配而在队列中等候的最大请求数,超过这个请求数的用户连接就不会被接受-->
+		<simultaneous-build-throttle>6</simultaneous-build-throttle>
+		<!--最少保持的空闲连接�?(默认2�?)-->
+		<prototype-count>5</prototype-count>
+		<!--在使用之前测�?-->
+		<test-before-use>true</test-before-use>
+		<!--用于保持连接的测试语�? -->
+		<house-keeping-test-sql>show tables</house-keeping-test-sql>
+	</proxool>
+</something-else-entirely>
